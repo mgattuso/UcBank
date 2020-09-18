@@ -17,9 +17,4 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Pages\BankAccounts\" />
-    <Folder Include="Pages\Transactions\" />
-  </ItemGroup>
-
 </Project>
