@@ -37,7 +37,7 @@ namespace UcBank.Pages.Transactions
             {
                 return NotFound();
             }
-           ViewData["AccountId"] = new SelectList(_context.BankAccount, "BankAccountId", "BankAccountId");
+            ViewData["AccountId"] = new SelectList(_context.BankAccount, "BankAccountId", "AccountInformation");
             return Page();
         }
 

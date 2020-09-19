@@ -39,6 +39,11 @@ namespace UcBank.Models
         public int AccountHolderId { get; set; }
 
         public List<Transaction> Transactions { get; set; }
+
+        public string AccountInformation
+        {
+            get { return $"{AccountNumber} ({Name})"; }
+        }
     }
 
 

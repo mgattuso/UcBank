@@ -41,7 +41,7 @@
                 @Html.DisplayFor(modelItem => item.Amount)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Account.BankAccountId)
+                @Html.DisplayFor(modelItem => item.Account.AccountInformation)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.TransactionId">Edit</a> |

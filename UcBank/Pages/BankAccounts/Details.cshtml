@@ -55,6 +55,36 @@
         </dd>
     </dl>
 </div>
+@if (Model.BankAccount.Transactions.Any() == false)
+{
+    <div class="alert alert-info">No Transactions to Display</div>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.BankAccount.Transactions[0].TransactionDate)</th>
+            <th>@Html.DisplayNameFor(model => model.BankAccount.Transactions[0].TransactionId)</th>
+            <th>@Html.DisplayNameFor(model => model.BankAccount.Transactions[0].Description)</th>
+            <th>@Html.DisplayNameFor(model => model.BankAccount.Transactions[0].Amount)</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.BankAccount.Transactions.OrderByDescending(x => x.TransactionDate))
+            {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.TransactionDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.TransactionId)</td>
+                <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                <td>@Html.DisplayFor(modelItem => item.Amount)</td>
+                <td><a asp-page="/transactions/details" asp-route-id="@item.TransactionId">Details</a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.BankAccount.BankAccountId">Edit</a> |
     <a asp-page="./Index">Back to List</a>

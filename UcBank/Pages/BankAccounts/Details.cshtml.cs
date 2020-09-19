@@ -29,7 +29,9 @@ namespace UcBank.Pages.BankAccounts
             }
 
             BankAccount = await _context.BankAccount
-                .Include(b => b.AccountHolder).FirstOrDefaultAsync(m => m.BankAccountId == id);
+                .Include(b => b.AccountHolder)
+                .Include(b => b.Transactions)
+                .FirstOrDefaultAsync(m => m.BankAccountId == id);
 
             if (BankAccount == null)
             {
