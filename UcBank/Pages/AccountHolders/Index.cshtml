@@ -5,7 +5,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>All Account Holders</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -28,9 +28,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.AccountHolder[0].PlatinumMember)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AccountHolder[0].Notes)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -50,10 +47,14 @@
                 @Html.DisplayFor(modelItem => item.SocialSecurityNumber)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PlatinumMember)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Notes)
+                @if (item.PlatinumMember)
+                {
+                    <span class="badge badge-warning">Platinum</span>
+                }
+                else
+                {
+                    <span class="badge badge-secondary">Standard</span>
+                }
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.AccountHolderId">Edit</a> |

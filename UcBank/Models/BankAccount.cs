@@ -12,18 +12,24 @@ namespace UcBank.Models
         public int BankAccountId { get; set; }
 
         [DisplayName("Account Number")]
+        [Required]
+        [StringLength(8, MinimumLength = 8)]
         public string AccountNumber { get; set; }
         
         [DisplayName("Current Balance")]
+        [Range(-200, 1000000)]
         [DataType(DataType.Currency)]
         public decimal CurrentBalance { get; set; }
         public DateTime Created { get; set;  }
+        [Required]
+        [StringLength(30)]
         public string Name { get; set; }
         
         [DisplayName("Last Deposit")]
         public DateTime? LastDeposit { get; set; } 
         
         [DisplayName("Interest Rate")]
+        [Range(0,100)]
         public decimal InterestRate { get; set; }
 
         [DisplayName("Account Holder")]

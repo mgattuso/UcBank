@@ -5,7 +5,7 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>Bank Account: @Model.BankAccount.AccountNumber</h1>
 
 <div>
     <h4>BankAccount</h4>
@@ -51,7 +51,7 @@
             @Html.DisplayNameFor(model => model.BankAccount.AccountHolder)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.BankAccount.AccountHolder.AccountHolderId)
+            @Html.DisplayFor(model => model.BankAccount.AccountHolder.FullName)
         </dd>
     </dl>
 </div>

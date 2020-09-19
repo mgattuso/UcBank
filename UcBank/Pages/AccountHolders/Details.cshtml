@@ -5,7 +5,7 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>Account Holder Details @Model.AccountHolder.FirstName @Model.AccountHolder.LastName</h1>
 
 <div>
     <h4>AccountHolder</h4>
@@ -49,6 +49,39 @@
         </dd>
     </dl>
 </div>
+
+@if (Model.AccountHolder.BankAccounts.Any() == false)
+{
+    <div class="alert alert-info">No bank account have been created. <a asp-page="/bankaccounts/create">Create a bank account</a></div>
+}
+else
+{
+    <h4>Bank Accounts</h4>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.AccountHolder.BankAccounts[0].AccountNumber)</th>
+            <th>@Html.DisplayNameFor(model => model.AccountHolder.BankAccounts[0].Name)</th>
+            <th>@Html.DisplayNameFor(model => model.AccountHolder.BankAccounts[0].LastDeposit)</th>
+            <th>@Html.DisplayNameFor(model => model.AccountHolder.BankAccounts[0].CurrentBalance)</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.AccountHolder.BankAccounts)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.AccountNumber)</td>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.LastDeposit)</td>
+                <td>@Html.DisplayFor(modelItem => item.CurrentBalance)</td>
+                <td><a asp-page="/bankaccounts/create" asp-route-id="@item.BankAccountId">Details</a></td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.AccountHolder.AccountHolderId">Edit</a> |
     <a asp-page="./Index">Back to List</a>

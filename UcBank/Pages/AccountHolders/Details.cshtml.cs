@@ -28,7 +28,7 @@ namespace UcBank.Pages.AccountHolders
                 return NotFound();
             }
 
-            AccountHolder = await _context.AccountHolder.FirstOrDefaultAsync(m => m.AccountHolderId == id);
+            AccountHolder = await _context.AccountHolder.Include(x => x.BankAccounts).FirstOrDefaultAsync(m => m.AccountHolderId == id);
 
             if (AccountHolder == null)
             {
