@@ -75,7 +75,7 @@ else
                 <td>@Html.DisplayFor(modelItem => item.Name)</td>
                 <td>@Html.DisplayFor(modelItem => item.LastDeposit)</td>
                 <td>@Html.DisplayFor(modelItem => item.CurrentBalance)</td>
-                <td><a asp-page="/bankaccounts/create" asp-route-id="@item.BankAccountId">Details</a></td>
+                <td><a asp-page="/bankaccounts/details" asp-route-id="@item.BankAccountId">Details</a></td>
             </tr>
         }
         </tbody>

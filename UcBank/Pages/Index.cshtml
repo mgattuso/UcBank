@@ -4,7 +4,39 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row">
+    <div class="col text-center">
+        <h1 class="text-danger mb-5">UC Banking</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <h4>Platform Statistics</h4>
+        <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Total Account Holders
+                <span class="badge badge-primary badge-pill">@Model.TotalAccountHolders</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Total Accounts
+                <span class="badge badge-primary badge-pill">@Model.TotalAccounts</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Average Account Balance
+                <span class="badge badge-primary badge-pill">@Model.AverageAccountBalance</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Total Deposits
+                <span class="badge badge-primary badge-pill">@Model.TotalDeposits</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Transactions Today
+                <span class="badge badge-primary badge-pill">@Model.TransactionsToday</span>
+            </li>
+        </ul>
+    </div>
+    <div class="col">
+        <img src="https://mem.gtt.me/image/png/400x300"/>
+    </div>
 </div>

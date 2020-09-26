@@ -1,6 +1,5 @@
 ﻿@page
 @model UcBank.Pages.AccountHolders.CreateModel
-
 @{
     ViewData["Title"] = "Create";
 }
@@ -35,8 +34,10 @@
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="AccountHolder.PlatinumMember" /> @Html.DisplayNameFor(model => model.AccountHolder.PlatinumMember)
+                    <input class="form-check-input" asp-for="AccountHolder.PlatinumMember" />
+                    @Html.DisplayNameFor(model => model.AccountHolder.PlatinumMember)
                 </label>
+                <span asp-validation-for="AccountHolder.PlatinumMember" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="AccountHolder.Notes" class="control-label"></label>

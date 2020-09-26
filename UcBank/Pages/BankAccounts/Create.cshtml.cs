@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using UcBank.Data;
 using UcBank.Models;
 
@@ -21,7 +22,7 @@ namespace UcBank.Pages.BankAccounts
 
         public IActionResult OnGet()
         {
-        ViewData["AccountHolderId"] = new SelectList(_context.AccountHolder, "AccountHolderId", "FullName");
+            ViewData["AccountHolderId"] = new SelectList(_context.AccountHolder, "AccountHolderId", "FullName");
             return Page();
         }
 
@@ -32,6 +33,10 @@ namespace UcBank.Pages.BankAccounts
         // more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
+            // REPOPULATE DROPDOWN IF VALIDATION ERROR OCCURS
+            ViewData["AccountHolderId"] = new SelectList(_context.AccountHolder, "AccountHolderId", "FullName");
+
+            // RETURN IF BUILT-IN VALIDATION FAILS
             if (!ModelState.IsValid)
             {
                 return Page();

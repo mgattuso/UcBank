@@ -60,6 +60,10 @@
                 <a asp-page="./Edit" asp-route-id="@item.AccountHolderId">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.AccountHolderId">Details</a> |
                 <a asp-page="./Delete" asp-route-id="@item.AccountHolderId">Delete</a>
+                @if (!item.PlatinumMember)
+                {
+                    <text>|</text> <a asp-page="./Upgrade" asp-route-id="@item.AccountHolderId">Upgrade</a>
+                }
             </td>
         </tr>
 }
